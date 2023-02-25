@@ -1,0 +1,117 @@
+<!doctype html>
+<head>
+<Meta charset="UTF-8">
+<style>
+body {
+background-color:black;
+
+}
+
+.mydiv {
+top: -20px;
+background-color:#2f2f2f;
+opacity:1;
+border-radius:10px;
+text-align:center;
+height:200px;
+width:500px;
+margin: auto;
+
+
+
+
+}
+ h1 {
+	font-family:verdana;
+	color:white;
+    }
+.but {
+border-color:white;
+ border-style:solid;
+ border-radius:10px;
+ width:130px;
+ height:40px;
+ color:white;
+ font-size:24px;
+ background-color:#4169e1;
+ font-family: Arial;
+ text-transform:capitalize;
+ }
+ 
+ .but:hover{
+border-color:#4169e1;
+ border-style:solid;
+ border-radius:10px;
+ width:130px;
+ height:40px;
+ color:#4169e1;
+ font-size:24px;
+ background-color:white;
+ font-family: Arial;
+ text-transform:capitalize;
+ }
+ 
+.txt {
+width:250px;
+height:30px;
+text-transform:uppercase;
+font-family:verdana;
+
+}
+.thumb {
+width:282px;
+height:210px;
+display:none;
+border-radius:20px;
+border-color:orange;
+border-style: outset;
+margin: auto;
+top:-20;
+}
+.lab {
+margin: auto;
+top:-40;
+font-family:arial;
+font-size:30px;
+color:#ffffff;
+
+}
+
+</style>
+</head>
+<div id="mydiv" class="mydiv">
+<header>
+<h1>Data.Projekt</h1>
+</header>
+<body>
+<input type="textbox" onclick="temizle()" value="Scratch proje URL veya Id gir" id="girdi" class="txt">
+<br>
+<br>
+<button class="but"  onclick="get()">Veriyi Al</button>
+<br>
+<br>
+<br>
+<img id="scimg" class="thumb" src="https://uploads.scratch.mit.edu/get_image/project/801451894_144x108.png">
+<p id="text" class="lab"></p>
+</div>
+<script>
+function temizle() {
+document.getElementById("girdi").value= "";
+
+}
+function get() {
+ 
+let link = document.getElementById("girdi").value ;
+let result =  link.replace("https://scratch.mit.edu/projects/","");
+let result2 =  result.replace("/","");
+
+
+document.getElementById("scimg").src ="https://cdn2.scratch.mit.edu/get_image/project/" + result2  +"_282x210.png";
+document.getElementById("mydiv").style.height='460px';
+document.getElementById("scimg").style.display="block";
+document.getElementById("text").innerHTML="Proje ID:" + result2;
+
+}
+
+</script>
+</body>
